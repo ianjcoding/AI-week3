@@ -1,0 +1,125 @@
+Part 1: Theoretical Understanding (40%)
+Q1: Explain the primary differences between TensorFlow and PyTorch. When would you choose one over the other?
+Differences
+Feature	TensorFlow	PyTorch
+Computation Graph	Uses static graphs (Graph mode), but also supports eager execution	Uses dynamic computation graphs (eager by default)
+Ease of Debugging	Harder (older versions); debugging graphs can be complex	Very easy—feels like normal Python, excellent debugging
+Deployment	TensorFlow Serving, TensorFlow Lite, TensorFlow.js → very strong production tools	Deployment improving but still not as integrated as TensorFlow
+Community	Strong in industry and large companies	Very strong in research and universities
+When to choose which
+
+Choose TensorFlow when:
+
+Deploying to production (mobile, web, cloud)
+
+You need TensorFlow Lite, TF.js, or Google Cloud integration
+
+You want a full ecosystem (Keras, TF-serving, TPU support)
+
+Choose PyTorch when:
+
+Doing research or exploring new deep learning architectures
+
+You want fast prototyping and easier debugging
+
+You want code that feels natural and Pythonic
+
+Q2: Describe two use cases for Jupyter Notebooks in AI development.
+1. Exploratory Data Analysis (EDA)
+
+Jupyter allows you to:
+
+load datasets
+
+clean data
+
+visualize results with plots
+
+test small code chunks interactively
+
+Perfect for understanding data before training models.
+
+2. Building and Demonstrating Machine Learning Experiments
+
+You can:
+
+train models step-by-step
+
+view metrics immediately
+
+record results in the same document
+
+combine text, code, and charts
+
+This makes notebooks ideal for tutorials, research, and presentations.
+
+Q3: How does spaCy enhance NLP tasks compared to basic Python string operations?
+1. Advanced Linguistic Processing
+
+spaCy can perform:
+
+tokenization
+
+part-of-speech tagging
+
+named entity recognition
+
+dependency parsing
+
+These are impossible or very hard using plain string functions.
+
+2. Speed and Accuracy
+
+spaCy is:
+
+optimized in Cython → extremely fast
+
+provides high-accuracy pretrained models
+
+consistent across large text datasets
+
+Basic string operations only split by characters and cannot understand grammar, meaning, or context.
+
+✅ Part 2: Comparative Analysis
+Compare Scikit-learn and TensorFlow
+1. Target Applications
+Library	Best For
+Scikit-learn	Classical ML: decision trees, SVMs, clustering, regression, PCA, feature engineering
+TensorFlow	Deep learning: neural networks, CNNs, RNNs, transformers
+
+Scikit-learn cannot train deep networks; TensorFlow is built for them.
+
+2. Ease of Use for Beginners
+
+Scikit-learn
+
+Very simple API
+
+Works with small datasets
+
+Fit → Predict workflow is easy
+
+Best for students starting ML
+
+TensorFlow
+
+More complex
+
+Requires understanding tensors, gradients, training loops
+
+Keras makes it easier but still heavier than scikit-learn
+
+Winner for beginners: Scikit-learn
+
+3. Community Support
+
+Both have very strong communities, but:
+
+TensorFlow has huge industry support (Google, cloud deployment)
+
+PyTorch dominates research
+
+Scikit-learn is the standard for traditional ML
+
+In terms of maturity for classical ML, Scikit-learn wins.
+For deep learning and deployment, TensorFlow wins.
