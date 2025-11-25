@@ -1,0 +1,53 @@
+1. Ethical Considerations — biases & mitigation (writeup to include)
+
+Bias sources:
+
+MNIST: If your training/test split accidentally includes digit styles dominated by some writers (e.g., digits from specific writers in train only), model may overfit handwriting styles.
+
+Amazon Reviews: Brand representation bias (some brands over-represented), demographic bias in reviewers, sarcasm or domain misinterpretation.
+
+Consequences:
+
+Wrong predictions disproportionately impacting certain user groups; mischaracterized sentiment harming product decisions.
+
+Mitigation tools & approaches:
+
+TensorFlow Fairness Indicators: use dataset slices (e.g., by reviewer country, product category) to check fairness metrics across slices.
+
+Data balancing / re-sampling: ensure diverse representation when training.
+
+Model explainability: SHAP or saliency maps for CNNs, LIME for text models, to detect unfair decision patterns.
+
+Human-in-the-loop: manual review for flagged predictions.
+
+spaCy rule-based systems: use an EntityRuler + manual rules to reduce false positives for brands; annotate corner cases and retrain or expand patterns.
+
+Include a short paragraph like the above in your deliverable.
+
+2. Troubleshooting Challenge — common TensorFlow bugs + fixes
+
+Dimension mismatch:
+
+Error: ValueError: Shapes (None, 10) and (None, 1) are incompatible
+
+Fix: Ensure your loss matches labels: use sparse_categorical_crossentropy with integer labels or categorical_crossentropy with one-hot labels. Or convert labels with to_categorical.
+
+Incorrect activation/loss:
+
+For multi-class classification use softmax on final layer + categorical_crossentropy.
+
+Model not learning / low accuracy:
+
+Learning rate too high/low — try Adam with default or tune; add BatchNormalization; reduce dropout.
+
+GPU out-of-memory:
+
+Reduce batch_size or use smaller model.
+
+Shape errors with Conv2D:
+
+Check input shape: Keras expects (height, width, channels). For grayscale set channels=1.
+
+"fetch first" / push-to-repo confusion — unrelated to TF, but for git merges: ensure you resolve merge conflicts in code files (the merge message issue you saw earlier).
+
+If you paste your buggy script here, I’ll debug it line-by-line.
